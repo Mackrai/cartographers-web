@@ -7,9 +7,11 @@ lazy val root = (project in file("."))
         name := "cartographers-web",
         libraryDependencies ++=
             Dependencies.zio ++
+                Dependencies.zioConfig ++
                 Dependencies.zioHttp ++
                 Dependencies.zioQuill ++
                 Dependencies.zioLogging ++
+                Dependencies.circe ++
                 Dependencies.logback ++
                 Dependencies.postgresql
     )

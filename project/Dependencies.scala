@@ -2,7 +2,9 @@ import sbt.*
 
 object Dependencies {
     object V {
+        val Circe = "0.14.10"
         val Zio = "2.1.9"
+        val ZioConfig = "4.0.2"
         val ZioHttp = "3.0.0-RC9"
         val ZioQuill = "4.8.4"
         val ZioLogging = "2.3.1"
@@ -10,10 +12,22 @@ object Dependencies {
         val Postgresql = "42.3.1"
     }
 
+    val circe: Seq[ModuleID] = Seq(
+        "io.circe" %% "circe-core",
+        "io.circe" %% "circe-generic",
+        "io.circe" %% "circe-parser"
+    ).map(_ % V.Circe)
+
     val zio: Seq[ModuleID] =
         Seq(
             "dev.zio" %% "zio",
         ).map(_ % V.Zio)
+
+    val zioConfig: Seq[ModuleID] =
+        Seq(
+            "dev.zio" %% "zio-config",
+            "dev.zio" %% "zio-config-magnolia",
+        ).map(_ % V.ZioConfig)
 
     val zioHttp: Seq[ModuleID] =
         Seq(
